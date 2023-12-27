@@ -35,11 +35,11 @@ function calculateResult(pointsWinner, pointsLoser) {
   let result;
   if (pointsWinner > pointsLoser) {
     result = firstTable.find((item) => item.min <= pointsDifference);
-    return [result.winnerResult, result.looserResult];
   } else {
     result = secondTable.find((item) => item.min <= pointsDifference);
-    return [result.looserResult, result.winnerResult];
+    // return [result.looserResult, result.winnerResult];
   }
+  return [result.winnerResult, result.looserResult];
 }
 
 function displayResult() {
