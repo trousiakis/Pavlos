@@ -40,29 +40,23 @@ function calculateResult(pointsWinner, pointsLoser) {
     result = secondTable.find((item) => item.min <= pointsDifference);
     return [result.looserResult, result.winnerResult];
   }
-
-  // Return the result
-
-  return result;
 }
 
 function displayResult() {
-  const pointsPlayerOne = parseFloat(document.getElementById("winner").value);
-  const pointsPlayerTwo = parseFloat(document.getElementById("looser").value);
-
-  // Determine who is the winner and who is the loser
-  const isPlayerOneWinner = pointsPlayerOne > pointsPlayerTwo;
-  const pointsWinner = isPlayerOneWinner ? pointsPlayerOne : pointsPlayerTwo;
-  const pointsLoser = isPlayerOneWinner ? pointsPlayerTwo : pointsPlayerOne;
+  const pointsWinner = parseFloat(document.getElementById("winner").value);
+  const pointsLoser = parseFloat(document.getElementById("looser").value);
 
   // Get the result
   const result = calculateResult(pointsWinner, pointsLoser);
 
   // Display the result
   if (result) {
-    document.getElementById("result").innerText = `Winner: ${result[0]}, Loser: ${result[1]}`;
+    document.getElementById(
+      "result"
+    ).innerText = `Winner: ${result[0]}, Loser: ${result[1]}`;
   } else {
-    document.getElementById("result").innerText = "No result found for the given points difference.";
+    document.getElementById("result").innerText =
+      "No result found for the given points difference.";
   }
 }
 
@@ -75,4 +69,3 @@ try {
 } catch (error) {
   console.error(error);
 }
-
